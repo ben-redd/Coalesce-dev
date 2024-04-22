@@ -8,14 +8,19 @@ operation:
     preSQL: ""
     testsEnabled: true
     truncateBefore: true
-  database: ""
+  database: BEN_EDW
   deployEnabled: true
   description: ""
   isMultisource: false
   locationName: WORK
   materializationType: table
   metadata:
-    appliedNodeTests: []
+    appliedNodeTests:
+      - continueOnFailure: false
+        description: ""
+        name: Test
+        runOrder: After
+        templateString: SELECT * FROM {{ ref_no_link('WORK','STG_REGION') }} WHERE R_REGIONKEY > 0
     columns:
       - appliedColumnTests: {}
         columnReference:
@@ -45,20 +50,6 @@ operation:
               - columnCounter: 138ffc19-ce7e-47d0-94d3-fd9fc30e7b35
                 stepCounter: 1d3d9d83-457f-44b1-ad44-7e9560a125dc
             transform: ""
-      - appliedColumnTests: {}
-        columnReference:
-          columnCounter: 936459a3-5435-467b-b3e6-52cb6c1c057d
-          stepCounter: ced8f8b5-5c9c-4330-bb89-80d085a738cd
-        config: {}
-        dataType: VARCHAR(152)
-        description: ""
-        name: R_COMMENT
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: f7910042-acb4-4ce7-9c2f-74e92efcf16c
-                stepCounter: 1d3d9d83-457f-44b1-ad44-7e9560a125dc
-            transform: ""
     cteString: ""
     enabledColumnTestIDs: []
     sourceMapping:
@@ -74,7 +65,7 @@ operation:
         noLinkRefs: []
   name: STG_REGION
   overrideSQL: false
-  schema: ""
+  schema: DEV_7.1.0_MAIN_WS
   sqlType: Stage
   type: sql
   version: 1

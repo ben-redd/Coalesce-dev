@@ -8,14 +8,19 @@ operation:
     preSQL: ""
     testsEnabled: true
     truncateBefore: true
-  database: ""
+  database: BEN_EDW
   deployEnabled: true
   description: ""
   isMultisource: false
   locationName: WORK
   materializationType: table
   metadata:
-    appliedNodeTests: []
+    appliedNodeTests:
+      - continueOnFailure: false
+        description: ""
+        name: Test
+        runOrder: After
+        templateString: SELECT * FROM {{ ref_no_link('WORK','STG_NATION') }} WHERE N_NATIONKEY > 0
     columns:
       - appliedColumnTests: {}
         columnReference:
@@ -107,7 +112,7 @@ operation:
         noLinkRefs: []
   name: STG_NATION
   overrideSQL: false
-  schema: ""
+  schema: DEV_7.1.0_MAIN_WS
   sqlType: Stage
   type: sql
   version: 1
