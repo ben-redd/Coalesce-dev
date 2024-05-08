@@ -1,0 +1,49 @@
+steps:
+  STG_AIRFARE2-a3337b6c-9859-4872-b0c9-092baa67035c:
+    operation:
+      config:
+        insertStrategy: INSERT
+        postSQL: ""
+        preSQL: ""
+        testsEnabled: true
+        truncateBefore: true
+      database: ""
+      deployEnabled: true
+      description: ""
+      isMultisource: false
+      locationName: WORK
+      materializationType: table
+      metadata:
+        appliedNodeTests: []
+        columns:
+          - columnReference:
+              columnCounter: 7718f6a2-e276-431c-9aaf-97a0d135d2e5
+              stepCounter: a3337b6c-9859-4872-b0c9-092baa67035c
+            dataType: VARIANT
+            description: ""
+            name: XML_COL
+            nullable: true
+            sourceColumnReferences:
+              - columnReferences:
+                  - columnCounter: 2045e8de-f482-4b67-b474-8684ce9f9a55
+                    stepCounter: bc39e1fa-7a0a-49a8-872e-5f2acf654bfd
+                transform: ""
+        cteString: ""
+        enabledColumnTestIDs: []
+        sourceMapping:
+          - aliases: {}
+            customSQL:
+              customSQL: ""
+            dependencies:
+              - locationName: WORK
+                nodeName: STG_AIRFARE1
+            join:
+              joinCondition: FROM {{ ref('WORK', 'STG_AIRFARE1') }} "STG_AIRFARE1"
+            name: STG_AIRFARE2
+            noLinkRefs: []
+      name: STG_AIRFARE2
+      overrideSQL: false
+      schema: ""
+      sqlType: Stage
+      type: sql
+    stepCounter: a3337b6c-9859-4872-b0c9-092baa67035c
