@@ -1,18 +1,18 @@
 fileVersion: 1
-id: "23"
+id: "56"
 isDisabled: false
 metadata:
   defaultStorageLocation: null
   error: null
   nodeMetadataSpec: |-
-    capitalized: 'My Node Name'                      # Common Name (string, required)
-    short: 'MNN'                                     # Node prefix. A '_' delimiter will be added automatically. (string, required)
-    plural: 'My Node Names'                          # plural name of common name (string, required)
-    tagColor: '#FF5A5F'                              # Node color. CSS colors or hex colors (string, required)
+    capitalized: 'Dope AF UDN'                      # Common Name (string, required)
+    short: 'DAF'                                     # Node prefix. A '_' delimiter will be added automatically. (string, required)
+    plural: 'Dope AF UDNs'                          # plural name of common name (string, required)
+    tagColor: '#FE8E01'                              # Node color. CSS colors or hex colors (string, required)
     deployStrategy: default													 # Deployment strategy - see separate article for details.
 
     config:                                          # Array of the following config items
-    - groupName: 'Core UI Elements'                  # Name of config group (string, required)
+    - groupName: 'Cool Stuff'                  # Name of config group (string, required)
       description: 'Core UI Elements'                # Description of group. Displayed in the GUI (string)
       enableIf: 'true'                               # If true, display this config group, else hide this config group. 
                                                      # Jinja expression resulting in a quoted boolean may be used for dynamic behavior 
@@ -20,14 +20,7 @@ metadata:
 
       items:                                         # This will be followed by all your config items/UI elements for the given group (array, required)
 
-                                                     ## Core UI Elements ##
-      - type: businessKeyColumns                     # Selector for business key columns
-        displayName: 'Business Key'                  # displayName for type businessKeyColumns (cannot be modified by user) 
-        attributeName: 'isBusinessKey'               # attributeName for type businessKeyColumns (cannot be modified by user) 
-        isRequired: false                            # Require input from user for this config element (boolean, defaults false)
-        enableIf: 'true'                             # If true, display this element, else hide this element. 
-                                                     # Jinja expression resulting in a quoted boolean may be used for dynamic behavior 
-                                                     # (boolean string, 'true' | 'false', defaults 'true')
+                                                     
 
       - type: materializationSelector                # Dropdown selector for materialization options
         default: 'table'                             # Default selection (string)
@@ -201,10 +194,10 @@ metadata:
 
         
     systemColumns:                                   # Additional columns (rows in mapping grid) to initialize the node with (array of columns objects)
-    - displayName: 'SYSTEM_COLUMN_1'                 # Column display name (string, required) 
+    - displayName: '{{NODE_NAME}}_KEY'                 # Column display name (string, required) 
                                                      # '{{NODE_NAME}}' token can be used in the displayName to reference the name of the current node
-      attributeName: 'systemColumn1'                 # Name of element used in templates (string, required)
-      transform: '1'                                 # Initialized transform value of system column (string, required)
+      attributeName: 'isSurrogateKeyTest'                 # Name of element used in templates (string, required)
+      transform: ''                                 # Initialized transform value of system column (string, required)
       dataType: 'NUMBER'                             # SQL data type (string, required)
       placement: 'beginning'                         # Determines placement of system column in relation to normal columns.  (string, 'beginning' | 'end')
 
@@ -212,5 +205,5 @@ metadata:
     - type: textBox                                  # Generic textbox in mapping grid
       headerName: 'My Header'                        # GUI display name (string, required) 
       attributeName: 'myMappingColumn'               # Name of element used in templates (string, required)
-name: Copy of Stage
+name: Dope AF UDN
 type: NodeType
