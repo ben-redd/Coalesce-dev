@@ -1,0 +1,46 @@
+fileVersion: 1
+id: "64"
+isDisabled: false
+metadata:
+  defaultStorageLocation: null
+  error: null
+  nodeMetadataSpec: |-
+    capitalized: 'My Node Name'
+    short: 'MNN'                                     # Node prefix. A '_' delimiter will be added automatically. (string, required)
+    plural: 'My Node Names'                          # plural name of common name (string, required)
+    tagColor: '#FF5A5F'                              # Node color. CSS colors or hex colors (string, required)
+    deployStrategy: default													 # Deployment strategy - see separate article for details.
+
+    config:                                          # Array of the following 
+
+    - groupName: 'User-defined UI Elements'          # Name of config group (string, required)
+      description: 'User-defined UI Elements'        # Description of group. Displayed in the GUI (string)
+      enableIf: 'true'                               # If true, display this config group, else hide this config group
+                                            
+      items:                                         # This will be followed by all your config items/UI elements for the given group (array, required)
+      
+      - type: tabular                                # Tabular config option. Combines multiple config elements into a single table-like structure
+        displayName: 'My Tabular Config'             # GUI display name (string, required) 
+        attributeName: 'myTabularConfig'             # Name of element used in templates (string, required)
+        columns:                                     # Array of config element types
+                                                    
+        - type: toggleButton                         # Toggle button
+          displayName: 'Toggle'                      # GUI display name (string, required) 
+          attributeName: 'tabToggleButton1'          # Name of element used in templates (string, required)
+          enableIf: 'true'                           # If true, display this element, else hide this element. 
+        
+        - type: dropdownSelector                     # Dropdown of options
+          displayName: 'Dropdown'                    # GUI display name (string, required) 
+          attributeName: 'tabDropdown'               # Name of element used in templates (string, required)
+          default: 'option 1'                        # Default selection (string)
+          options:                                   # Dropdown options (array of strings, required)
+          - 'option 1'
+          - 'option 2'
+          isRequired: false                          # If a config item is required (boolean, defaults false)
+          enableIf: 'true'                           # If true, display this element, else hide this element. 
+
+        
+        isRequired: false                            # If a config item is required (boolean, defaults false)
+        enableIf: 'true'                             # If true, display this element, else hide this element.
+name: New Type
+type: NodeType
