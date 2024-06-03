@@ -262,6 +262,7 @@ operation:
           STG_NATION: 3e4578bf-68b6-4d6f-bb60-57f5ce8233b3
           STG_ORDERS: da521b9d-fe26-4b59-9024-21268a942475
           STG_REGION: ced8f8b5-5c9c-4330-bb89-80d085a738cd
+          STG_SUPPLIER: a7c568f3-01cc-42f2-aa1b-88785f4ac7c1
         customSQL:
           customSQL: ""
         dependencies:
@@ -271,6 +272,8 @@ operation:
             nodeName: STG_ORDERS
           - locationName: WORK
             nodeName: STG_REGION
+          - locationName: WORK
+            nodeName: STG_SUPPLIER
         join:
           joinCondition: |-
             FROM {{ ref('WORK', 'STG_NATION') }} "STG_NATION"
@@ -278,6 +281,8 @@ operation:
             ON "STG_NATION".N_REGIONKEY = "STG_REGION"."R_REGIONKEY"
             INNER JOIN {{ ref('WORK', 'STG_ORDERS') }} "STG_ORDERS"
             ON "STG_NATION"."N_COMMENT" = "STG_ORDERS"."O_COMMENT"
+            INNER JOIN {{ ref('WORK', 'STG_SUPPLIER') }} "STG_SUPPLIER"
+            ON "STG_NATION"."N_NATIONKEY" = "STG_SUPPLIER"."S_NATIONKEY"
         name: STG_NATION_REGION_ORDERS
         noLinkRefs: []
   name: STG_NATION_REGION_ORDERS
