@@ -8,12 +8,11 @@ metadata:
     capitalized: 'My Node Name'                      # Common Name (string, required)
     short: 'MNN'                                     # Node prefix. A '_' delimiter will be added automatically. (string, required)
     plural: 'My Node Names'                          # plural name of common name (string, required)
-    tagColor: '#FF5A5F'                  
-    type: label                         # Node color. CSS colors or hex colors (string, required)
+    tagColor: '#FF5A5F'                              # Node color. CSS colors or hex colors (string, required)
     deployStrategy: default													 # Deployment strategy - see separate article for details.
 
     config:                                          # Array of the following config items
-    - groupName: 'Core UI Stuff'                  # Name of config group (string, required)
+    - groupName: 'Core UI Elements'                  # Name of config group (string, required)
       description: 'Core UI Elements'                # Description of group. Displayed in the GUI (string)
       enableIf: 'true'                               # If true, display this config group, else hide this config group. 
                                                      # Jinja expression resulting in a quoted boolean may be used for dynamic behavior 
@@ -43,7 +42,7 @@ metadata:
       - type: multisourceToggle  
         displayName: 'Multi Source'                  # displayName for type multisourceToggle (cannot be modified by user) 
         attributeName: 'node.isMultisource'          # attributeName for type multisourceToggle (cannot be modified by user) 
-        enableIf: "{% if node.materializationType == 'table' %} true {% else %} false {% endif %}"
+        enableIf: 'true'                             # If true, display this element, else hide this element. 
                                                      # Jinja expression resulting in a quoted boolean may be used for dynamic behavior 
                                                      # (boolean string, 'true' | 'false', defaults 'true')
 
@@ -182,11 +181,30 @@ metadata:
                                                      # Jinja expression resulting in a quoted boolean may be used for dynamic behavior 
                                                      # (boolean string, 'true' | 'false', defaults 'true')
 
+      - type: textBox                                # SQL to be executed before run
+        displayName: 'Pre-SQL'                       # GUI display name (string, required) 
+        attributeName: 'preSQL'                      # Name of element used in templates (string, required)
+        syntax: 'sql'                                # Syntax highlighting in text box (string, defaults 'none', 'none' | 'sql')
+        isRequired: false                            # If a config item is required (boolean, defaults false)
+        enableIf: 'true'                             # If true, display this element, else hide this element. 
+                                                     # Jinja expression resulting in a quoted boolean may be used for dynamic behavior 
+                                                     # (boolean string, 'true' | 'false', defaults 'true')
 
+      - type: textBox                                # SQL to be executed after run
+        displayName: 'Post-SQL'                      # GUI display name (string, required) 
+        attributeName: 'postSQL'                     # Name of element used in templates (string, required)
+        syntax: 'sql'                                # Syntax highlighting in text box (string, defaults 'none', 'none' | 'sql')
+        isRequired: false                            # If a config item is required (boolean, defaults false)
+        enableIf: 'true'                             # If true, display this element, else hide this element. 
+                                                     # Jinja expression resulting in a quoted boolean may be used for dynamic behavior 
+                                                     # (boolean string, 'true' | 'false', defaults 'true')
+
+        
     systemColumns:                                   # Additional columns (rows in mapping grid) to initialize the node with (array of columns objects)
-    - displayName: '{{NODE_NAME}}_KEY'                 # Column display name displayName to reference the name of the current node
-      attributeName: isSurrogateKeyTest                 # Name of element used in templates (string, required)
-      transform: ''                                 # Initialized transform value of system column (string, required)
+    - displayName: 'SYSTEM_COLUMN_1'                 # Column display name (string, required) 
+                                                     # '{{NODE_NAME}}' token can be used in the displayName to reference the name of the current node
+      attributeName: 'systemColumn1'                 # Name of element used in templates (string, required)
+      transform: '1'                                 # Initialized transform value of system column (string, required)
       dataType: 'NUMBER'                             # SQL data type (string, required)
       placement: 'beginning'                         # Determines placement of system column in relation to normal columns.  (string, 'beginning' | 'end')
 
