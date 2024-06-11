@@ -1,14 +1,20 @@
 fileVersion: 1
-id: dde67124-d7a6-450f-b859-8b9d34dfb535
-name: STG_CUSTOMER
+id: 45be49eb-3a1c-4b5b-86fd-3a73178e927d
+name: MNN_CUSTOMER
 operation:
   config:
+    button: false
+    dropdown: option 1
     insertStrategy: INSERT
+    myTabularConfig:
+      items:
+        - {}
     postSQL: ""
     preSQL: ""
     testsEnabled: true
-    truncateBefore: true
-  database: BEN_EDW
+    textbox: ""
+    truncateBefore: false
+  database: ""
   deployEnabled: true
   description: ""
   isMultisource: false
@@ -17,10 +23,27 @@ operation:
   metadata:
     appliedNodeTests: []
     columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a95ce763-d6d5-4b62-96ee-50524e29a958
+          stepCounter: 45be49eb-3a1c-4b5b-86fd-3a73178e927d
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        name: SYSTEM_COLUMN_1
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "1"
+        systemColumn1: true
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: c310d413-2b90-4e06-9b27-de832031728d
-          stepCounter: dde67124-d7a6-450f-b859-8b9d34dfb535
+          columnCounter: fd810315-dc17-49dd-94c4-816e646f5f21
+          stepCounter: 45be49eb-3a1c-4b5b-86fd-3a73178e927d
         config: {}
         dataType: NUMBER(38,0)
         description: SF*150,000 are populated
@@ -33,8 +56,8 @@ operation:
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 63c41bd1-8a85-43bd-9c3d-c4817dd088a6
-          stepCounter: dde67124-d7a6-450f-b859-8b9d34dfb535
+          columnCounter: b09de0ff-679f-4ec5-bf2c-0caa742c7ff8
+          stepCounter: 45be49eb-3a1c-4b5b-86fd-3a73178e927d
         config: {}
         dataType: VARCHAR(25)
         description: ""
@@ -47,8 +70,8 @@ operation:
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 0948ebbc-d914-43bb-b19c-5b9ca0e982d7
-          stepCounter: dde67124-d7a6-450f-b859-8b9d34dfb535
+          columnCounter: 2ab6d3b3-f098-4984-8374-26662245ffcd
+          stepCounter: 45be49eb-3a1c-4b5b-86fd-3a73178e927d
         config: {}
         dataType: VARCHAR(40)
         description: ""
@@ -61,10 +84,10 @@ operation:
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 28eac3eb-1312-4208-99cb-2c2687abe67a
-          stepCounter: dde67124-d7a6-450f-b859-8b9d34dfb535
+          columnCounter: db10674f-692f-4388-b120-2698ec7c1be7
+          stepCounter: 45be49eb-3a1c-4b5b-86fd-3a73178e927d
         config: {}
-        dataType: NUMBER(38,0)
+        dataType: VARCHAR(38)
         description: Foreign Key to N_NATIONKEY
         name: C_NATIONKEY
         nullable: false
@@ -72,11 +95,11 @@ operation:
           - columnReferences:
               - columnCounter: 1644e64a-f2a9-4507-aa6a-024ab6364b3c
                 stepCounter: f74723b7-fb0c-4127-a1c7-4e36f501b177
-            transform: ""
+            transform: "{{even_odd('\"CUSTOMER\".\"C_NATIONKEY\"')}}"
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 44349c08-8db2-4147-b54f-203331f4b4ec
-          stepCounter: dde67124-d7a6-450f-b859-8b9d34dfb535
+          columnCounter: f7f1bac7-0c52-415d-809f-de92804aebd4
+          stepCounter: 45be49eb-3a1c-4b5b-86fd-3a73178e927d
         config: {}
         dataType: VARCHAR(15)
         description: ""
@@ -89,8 +112,8 @@ operation:
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 124b9533-4bf3-49b0-9b68-d0263edbb10e
-          stepCounter: dde67124-d7a6-450f-b859-8b9d34dfb535
+          columnCounter: 6205ba87-0217-4a3b-86ad-f258167c834f
+          stepCounter: 45be49eb-3a1c-4b5b-86fd-3a73178e927d
         config: {}
         dataType: NUMBER(12,2)
         description: ""
@@ -103,8 +126,8 @@ operation:
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 738c5cb5-457e-4608-9d3a-f3138493423f
-          stepCounter: dde67124-d7a6-450f-b859-8b9d34dfb535
+          columnCounter: 4ffdfaa8-3120-4b4d-bf5e-40d5926e07c9
+          stepCounter: 45be49eb-3a1c-4b5b-86fd-3a73178e927d
         config: {}
         dataType: VARCHAR(10)
         description: ""
@@ -117,8 +140,8 @@ operation:
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: b4fb4252-1efd-4d7a-b305-9754bd853015
-          stepCounter: dde67124-d7a6-450f-b859-8b9d34dfb535
+          columnCounter: b8b12983-6623-4605-b6c8-74ab19f8109e
+          stepCounter: 45be49eb-3a1c-4b5b-86fd-3a73178e927d
         config: {}
         dataType: VARCHAR(117)
         description: ""
@@ -140,12 +163,12 @@ operation:
             nodeName: CUSTOMER
         join:
           joinCondition: FROM {{ ref('SAMPLE', 'CUSTOMER') }} "CUSTOMER"
-        name: STG_CUSTOMER
+        name: MNN_CUSTOMER
         noLinkRefs: []
-  name: STG_CUSTOMER
+  name: MNN_CUSTOMER
   overrideSQL: false
-  schema: DEV_7.1.0_MAIN_WS
-  sqlType: Stage
+  schema: ""
+  sqlType: PACKAGE-UDN-UPDATE:::77
   type: sql
   version: 1
 type: Node
