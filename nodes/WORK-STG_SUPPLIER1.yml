@@ -1,0 +1,53 @@
+fileVersion: 1
+id: bfa5e6c3-a890-4d3e-94ec-63ad9d577b03
+name: STG_SUPPLIER1
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: WORK
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0bfe396c-fb0a-434e-9de5-d7573e980644
+          stepCounter: bfa5e6c3-a890-4d3e-94ec-63ad9d577b03
+        config: {}
+        dataType: NUMBER(38,0)
+        description: Foreign Key to N_NATIONKEY
+        name: S_NATIONKEY
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f5cddc49-a847-40e9-b255-3ea0046acf83
+                stepCounter: 04d9ed46-393b-4da7-bcb5-5c9589a1c662
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SAMPLE
+            nodeName: SUPPLIER
+        join:
+          joinCondition: FROM {{ ref('SAMPLE', 'SUPPLIER') }} "SUPPLIER"
+        name: STG_SUPPLIER1
+        noLinkRefs: []
+  name: STG_SUPPLIER1
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node
