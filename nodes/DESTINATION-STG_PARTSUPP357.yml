@@ -1,0 +1,109 @@
+fileVersion: 1
+id: 78eed8c7-e177-45ed-960b-d7f97d3e6941
+name: STG_PARTSUPP357
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DESTINATION
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 733df066-973e-4377-a0ea-bfdf6b715e4e
+          stepCounter: 78eed8c7-e177-45ed-960b-d7f97d3e6941
+        config: {}
+        dataType: NUMBER(38,0)
+        description: Foreign Key to P_PARTKEY
+        name: PS_PARTKEY
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: acde0282-fdc7-45fe-b120-f2acdaa79682
+                stepCounter: 6a4502ca-48eb-4923-b785-ed9834ff8197
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c6bb58d1-0c08-42bf-ab81-d167890cf94e
+          stepCounter: 78eed8c7-e177-45ed-960b-d7f97d3e6941
+        config: {}
+        dataType: NUMBER(38,0)
+        description: Foreign Key to S_SUPPKEY
+        name: PS_SUPPKEY
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 43921ed7-f705-495c-9832-a4215ad581eb
+                stepCounter: 6a4502ca-48eb-4923-b785-ed9834ff8197
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fdecefce-e3f5-4706-8f2b-664c9179db14
+          stepCounter: 78eed8c7-e177-45ed-960b-d7f97d3e6941
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: PS_AVAILQTY
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cb5f3c61-809d-4a73-9615-535d9914fddf
+                stepCounter: 6a4502ca-48eb-4923-b785-ed9834ff8197
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1e20b808-0a52-4105-9838-fe69b18746e5
+          stepCounter: 78eed8c7-e177-45ed-960b-d7f97d3e6941
+        config: {}
+        dataType: NUMBER(12,2)
+        description: ""
+        name: PS_SUPPLYCOST
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 48ad0f2a-2087-4ab5-a2f2-e5cdff833e41
+                stepCounter: 6a4502ca-48eb-4923-b785-ed9834ff8197
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 25da7591-eb63-4326-9988-6efdbca9ddec
+          stepCounter: 78eed8c7-e177-45ed-960b-d7f97d3e6941
+        config: {}
+        dataType: VARCHAR(199)
+        description: ""
+        name: PS_COMMENT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ad12ed4a-39e1-4808-a521-a8ca497af801
+                stepCounter: 6a4502ca-48eb-4923-b785-ed9834ff8197
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DESTINATION
+            nodeName: STG_PARTSUPP80
+        join:
+          joinCondition: FROM {{ ref('DESTINATION', 'STG_PARTSUPP80') }} "STG_PARTSUPP80"
+        name: STG_PARTSUPP357
+        noLinkRefs: []
+  name: STG_PARTSUPP357
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

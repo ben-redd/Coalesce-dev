@@ -1,0 +1,67 @@
+fileVersion: 1
+id: b8b30004-3237-4951-8f4c-af919d3e5dc3
+name: STG_DAILY_14_TOTAL_SHORT261
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DESTINATION
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 877ed2da-7b8e-45d9-9912-d806a19e87d1
+          stepCounter: b8b30004-3237-4951-8f4c-af919d3e5dc3
+        config: {}
+        dataType: VARIANT
+        description: ""
+        name: V
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 17162c12-a615-4562-a8eb-3c82e2387707
+                stepCounter: d3275602-9c39-475e-ba21-83c79ecf4879
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7399aa04-b9c7-4fe4-b063-d4973be3ab18
+          stepCounter: b8b30004-3237-4951-8f4c-af919d3e5dc3
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        name: T
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 34e02804-d195-499a-a3dd-c18616c8a36b
+                stepCounter: d3275602-9c39-475e-ba21-83c79ecf4879
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DESTINATION
+            nodeName: STG_DAILY_14_TOTAL_SHORT104
+        join:
+          joinCondition: FROM {{ ref('DESTINATION', 'STG_DAILY_14_TOTAL_SHORT104') }} "STG_DAILY_14_TOTAL_SHORT104"
+        name: STG_DAILY_14_TOTAL_SHORT261
+        noLinkRefs: []
+  name: STG_DAILY_14_TOTAL_SHORT261
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

@@ -1,0 +1,67 @@
+fileVersion: 1
+id: 053739ce-bd7e-4739-85a2-ff1fa18862d0
+name: STG_DAILY_14_TOTAL_SHORT281
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: DESTINATION
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4d5e7cb8-15c6-4e66-a198-67ae937d3d44
+          stepCounter: 053739ce-bd7e-4739-85a2-ff1fa18862d0
+        config: {}
+        dataType: VARIANT
+        description: ""
+        name: V
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7f8f7eb3-5301-42bf-a6e2-d0421c579f51
+                stepCounter: e0145ebc-b738-4762-9ff3-e7594763dcb5
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1826472c-14fd-44c1-83d6-f44ecd4bfa08
+          stepCounter: 053739ce-bd7e-4739-85a2-ff1fa18862d0
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        name: T
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 158b301e-372c-4b7b-8be9-03b3924a6e52
+                stepCounter: e0145ebc-b738-4762-9ff3-e7594763dcb5
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: DESTINATION
+            nodeName: STG_DAILY_14_TOTAL_SHORT15
+        join:
+          joinCondition: FROM {{ ref('DESTINATION', 'STG_DAILY_14_TOTAL_SHORT15') }} "STG_DAILY_14_TOTAL_SHORT15"
+        name: STG_DAILY_14_TOTAL_SHORT281
+        noLinkRefs: []
+  name: STG_DAILY_14_TOTAL_SHORT281
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node
