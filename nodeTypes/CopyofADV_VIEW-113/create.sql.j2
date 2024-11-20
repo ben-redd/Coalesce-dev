@@ -34,9 +34,7 @@
     {% endfor %}
 
 {% elif currentState is defined and desiredState is defined and currentState != desiredState %}
--- jank thing to shortcut testing metadata only updates (i.e. change transform)
--- if you want this node type to actually work, then remove the below condition
-{% if currentState.node.tests != desiredState.node.tests %}
+
    {{ stage('Drop for recreate View', true, "sql", "drop") }}
    DROP VIEW {{ ref_no_link(currentState.node.location.name, currentState.node.name) }}
 
@@ -68,5 +66,4 @@
             {% endif %}
         {% endif %}
     {% endfor %}
-{% endif %}
 {% endif %}
