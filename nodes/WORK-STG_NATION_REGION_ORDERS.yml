@@ -247,7 +247,7 @@ operation:
           joinCondition: |-
             FROM {{ ref('WORK', 'STG_NATION') }} "STG_NATION"
             INNER JOIN {{ ref('WORK', 'STG_REGION') }} "STG_REGION"
-            ON "STG_NATION".N_REGIONKEY = "STG_REGION"."R_REGIONKEY"
+            ON "STG_NATION"."N_COMMENT" = "STG_REGION"."R_COMMENT"
             INNER JOIN {{ ref('WORK', 'STG_ORDERS') }} "STG_ORDERS"
             ON "STG_NATION"."N_COMMENT" = "STG_ORDERS"."O_COMMENT"
         name: STG_NATION_REGION_ORDERS
