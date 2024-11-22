@@ -1,0 +1,168 @@
+fileVersion: 1
+id: f853bc51-ec1d-4cd7-bc84-f54b298f7353
+name: STG_ORDERS530
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: |-
+    Orders are not present for all customers. In fact, one-third of the customers do not have any order in
+    the database. The orders are assigned at random to two-thirds of the customers (see Clause 4: ). The purpose of
+    this is to exercise the capabilities of the DBMS to handle "dead data" when joining two or more tables.
+  isMultisource: false
+  locationName: WORK
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a76164c9-4659-43f8-8fad-28e08287c9f1
+          stepCounter: f853bc51-ec1d-4cd7-bc84-f54b298f7353
+        config: {}
+        dataType: NUMBER(38,0)
+        description: SF*1,500,000 are sparsely populated
+        name: O_ORDERKEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c0b9c35a-5c6a-4c3b-b7d9-ef2cbf28463b
+                stepCounter: 63a235d5-e7f6-4489-aded-ecb69b7ddb72
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 454a7c5f-db53-4bfb-a2f8-5f32b25f779c
+          stepCounter: f853bc51-ec1d-4cd7-bc84-f54b298f7353
+        config: {}
+        dataType: NUMBER(38,0)
+        description: Foreign Key to C_CUSTKEY
+        name: O_CUSTKEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1635f17d-dcc0-4d59-9791-1a07c908357c
+                stepCounter: 63a235d5-e7f6-4489-aded-ecb69b7ddb72
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: aacc0524-fd7b-4878-8f83-3347078802dc
+          stepCounter: f853bc51-ec1d-4cd7-bc84-f54b298f7353
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        name: O_ORDERSTATUS
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 19619a58-b7c3-464c-9f79-00a4a2aad76a
+                stepCounter: 63a235d5-e7f6-4489-aded-ecb69b7ddb72
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 67943cbb-b19a-49b6-a881-25ed91c3e4ac
+          stepCounter: f853bc51-ec1d-4cd7-bc84-f54b298f7353
+        config: {}
+        dataType: NUMBER(12,2)
+        description: ""
+        name: O_TOTALPRICE
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 07b60e0a-f2a8-488d-87b0-9662e249aac9
+                stepCounter: 63a235d5-e7f6-4489-aded-ecb69b7ddb72
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6e02e1fa-a1fe-4b3b-9100-7078cc804730
+          stepCounter: f853bc51-ec1d-4cd7-bc84-f54b298f7353
+        config: {}
+        dataType: DATE
+        description: ""
+        name: O_ORDERDATE
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6549d4b0-7c97-40c7-acea-3fc5960c98f8
+                stepCounter: 63a235d5-e7f6-4489-aded-ecb69b7ddb72
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4f8b22aa-8f60-46cc-8f79-ffba27376e52
+          stepCounter: f853bc51-ec1d-4cd7-bc84-f54b298f7353
+        config: {}
+        dataType: VARCHAR(15)
+        description: ""
+        name: O_ORDERPRIORITY
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 03f749ea-b974-4f46-bad4-7cbd81af07e2
+                stepCounter: 63a235d5-e7f6-4489-aded-ecb69b7ddb72
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a322c2f2-7f18-4a66-bdd8-701ea35f2af8
+          stepCounter: f853bc51-ec1d-4cd7-bc84-f54b298f7353
+        config: {}
+        dataType: VARCHAR(15)
+        description: ""
+        name: O_CLERK
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b7b0b5ea-286d-4cff-81c6-02ee09c957b0
+                stepCounter: 63a235d5-e7f6-4489-aded-ecb69b7ddb72
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 47c87799-e92a-4420-b142-5d3853b43810
+          stepCounter: f853bc51-ec1d-4cd7-bc84-f54b298f7353
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: O_SHIPPRIORITY
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9b1eeec6-5ba9-4eda-a683-6e9c38bc83e5
+                stepCounter: 63a235d5-e7f6-4489-aded-ecb69b7ddb72
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 38d323e1-9807-482f-8573-4aa45dc74ca5
+          stepCounter: f853bc51-ec1d-4cd7-bc84-f54b298f7353
+        config: {}
+        dataType: VARCHAR(79)
+        description: ""
+        name: O_COMMENT
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 025eefba-5f29-4578-84a0-d7735f4cf3f1
+                stepCounter: 63a235d5-e7f6-4489-aded-ecb69b7ddb72
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: WORK
+            nodeName: STG_ORDERS111
+        join:
+          joinCondition: FROM {{ ref('WORK', 'STG_ORDERS111') }} "STG_ORDERS111"
+        name: STG_ORDERS530
+        noLinkRefs: []
+  name: STG_ORDERS530
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node
