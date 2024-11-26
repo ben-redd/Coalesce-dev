@@ -277,7 +277,7 @@ select 1 = 0
             {% endif %}
 
             {# Rename / Move Object #}
-            {% if (nsVariables.storageLocationTest == false or !nsVariables.storageLocationTest or currentState.node.name != desiredState.node.name) %}
+            {% if (nsVariables.storageLocationTest == false or nsVariables.storageLocationTest == undefined or currentState.node.name != desiredState.node.name) %}
                 {{ stage('Rename and / or Move Table', true, "sql", "alter") }}
                 {% set srcSchName = currentState.node.location.name %}
                 {% set cdb = currentState.storageLocations | selectattr('name', 'equalto', srcSchName) | map(attribute='database') | first %}
