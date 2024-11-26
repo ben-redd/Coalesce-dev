@@ -9,7 +9,7 @@ operation:
   deployEnabled: true
   description: ""
   isMultisource: false
-  locationName: WORK
+  locationName: ENV_PRESYNC
   materializationType: view
   metadata:
     appliedNodeTests: []
@@ -163,14 +163,15 @@ operation:
     cteString: ""
     enabledColumnTestIDs: []
     sourceMapping:
-      - aliases: {}
+      - aliases:
+          STG_PART2: 6530a29b-d9ca-48a7-847f-c7806a9f0ec1
         customSQL:
           customSQL: ""
         dependencies:
-          - locationName: WORK
+          - locationName: ENV_PRESYNC
             nodeName: STG_PART2
         join:
-          joinCondition: FROM {{ ref('WORK', 'STG_PART2') }} "STG_PART2"
+          joinCondition: FROM {{ ref('ENV_PRESYNC', 'STG_PART2') }} "STG_PART2"
         name: ADVV_PART2
         noLinkRefs: []
   name: ADVV_PART2
