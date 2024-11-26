@@ -277,7 +277,8 @@ select 1 = 0
             {% endif %}
 
             {# Rename / Move Object #}
-            {% if (nsVariables.storageLocationTest == false or nsVariables['storageLocationTest'] is not defined or currentState.node.name != desiredState.node.name) %}
+            -- or nsVariables['storageLocationTest'] is not defined 
+            {% if (nsVariables.storageLocationTest == false or currentState.node.name != desiredState.node.name) %}
                 {{ stage('Rename and / or Move Table', true, "sql", "alter") }}
                 {% set srcSchName = currentState.node.location.name %}
                 {% set cdb = currentState.storageLocations | selectattr('name', 'equalto', srcSchName) | map(attribute='database') | first %}
@@ -459,8 +460,8 @@ select 1 = 0
                 {{ nsVariables.finalClusterKey }}
 
             {% endif %}
-            -- {{stage("missed case" + nsVariables.storageLocationTest)}}
-            -- SELECT 1 = 0
+            {{stage("missed case")}}
+            SELECT 1 = 0
         {% endif %}
 
 
