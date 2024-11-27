@@ -9,7 +9,7 @@ operation:
   deployEnabled: true
   description: ""
   isMultisource: false
-  locationName: ENV_PRESYNC
+  locationName: WORK
   materializationType: view
   metadata:
     appliedNodeTests: []
@@ -129,15 +129,14 @@ operation:
     cteString: ""
     enabledColumnTestIDs: []
     sourceMapping:
-      - aliases:
-          WRK_CUSTOMER: 277b774d-2de9-4191-80ac-082f5278e55f
+      - aliases: {}
         customSQL:
           customSQL: ""
         dependencies:
-          - locationName: ENV_PRESYNC
+          - locationName: WORK
             nodeName: WRK_CUSTOMER
         join:
-          joinCondition: FROM {{ ref('ENV_PRESYNC', 'WRK_CUSTOMER') }} "WRK_CUSTOMER"
+          joinCondition: FROM {{ ref('WORK', 'WRK_CUSTOMER') }} "WRK_CUSTOMER"
         name: ADVV_CUSTOMER
         noLinkRefs: []
   name: ADVV_CUSTOMER
