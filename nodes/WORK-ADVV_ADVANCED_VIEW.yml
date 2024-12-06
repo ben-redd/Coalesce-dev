@@ -1,0 +1,92 @@
+fileVersion: 1
+id: ddfee3cd-611d-4db2-a97e-5ff77d0f9062
+name: ADVV_ADVANCED_VIEW
+operation:
+  config:
+    insertStrategy: UNION
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: WORK
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bf1cc36d-93ec-49be-b51c-627f87af49df
+          stepCounter: ddfee3cd-611d-4db2-a97e-5ff77d0f9062
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: N_NATIONKEY
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 70e05eba-1000-4d7b-a3d2-9dca150bde02
+                stepCounter: 831d7a43-07f6-40ba-bf9f-5e75e6d05b0e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7fc20f59-260d-43fb-a581-f2d064d4e5a7
+          stepCounter: ddfee3cd-611d-4db2-a97e-5ff77d0f9062
+        config: {}
+        dataType: VARCHAR(25)
+        description: ""
+        name: N_NAME
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e923abd8-2a10-416c-a0a7-d4ec686171c1
+                stepCounter: 831d7a43-07f6-40ba-bf9f-5e75e6d05b0e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bc14bd5f-8745-4325-8009-bb4a87277b43
+          stepCounter: ddfee3cd-611d-4db2-a97e-5ff77d0f9062
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: N_REGIONKEY
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 49728789-8355-4858-89d3-9fec5b4591e7
+                stepCounter: 831d7a43-07f6-40ba-bf9f-5e75e6d05b0e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e3c240cf-9772-497c-9e21-a7522ffb6ec9
+          stepCounter: ddfee3cd-611d-4db2-a97e-5ff77d0f9062
+        config: {}
+        dataType: VARCHAR(152)
+        description: ""
+        name: N_COMMENT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3a0dee41-0206-41b1-88b0-131a0cf20fdd
+                stepCounter: 831d7a43-07f6-40ba-bf9f-5e75e6d05b0e
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: WORK
+            nodeName: STG_NATION5
+        join:
+          joinCondition: FROM {{ ref('WORK', 'STG_NATION5') }} "STG_NATION5"
+        name: ADVV_ADVANCED_VIEW
+        noLinkRefs: []
+  name: ADVV_ADVANCED_VIEW
+  overrideSQL: false
+  schema: ""
+  sqlType: advanced-view:::114
+  type: sql
+  version: 1
+type: Node
