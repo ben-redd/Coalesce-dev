@@ -100,7 +100,12 @@ operation:
           - columnReferences:
               - columnCounter: 936459a3-5435-467b-b3e6-52cb6c1c057d
                 stepCounter: ced8f8b5-5c9c-4330-bb89-80d085a738cd
-            transform: ""
+            transform: |-
+              FROM {{ ref('WORK', 'STG_NATION') }} "STG_NATION"
+              INNER JOIN {{ ref('WORK', 'STG_REGION') }} "STG_REGION"
+              ON "STG_NATION"."N_COMMENT" = "STG_REGION"."R_COMMENT"
+              INNER JOIN {{ ref( 'WORK', 'STG_ORDERS') }} "STG_ORDERS"
+              ON "STG_NATION"."N_COMMENT" = "STG_ORDERS"."O_COMMENT"
       - appliedColumnTests: {}
         columnReference:
           columnCounter: e396bdf7-1dc4-473b-badf-689b909ffb63
@@ -230,10 +235,7 @@ operation:
     cteString: ""
     enabledColumnTestIDs: []
     sourceMapping:
-      - aliases:
-          STG_NATION: 3e4578bf-68b6-4d6f-bb60-57f5ce8233b3
-          STG_ORDERS: da521b9d-fe26-4b59-9024-21268a942475
-          STG_REGION: ced8f8b5-5c9c-4330-bb89-80d085a738cd
+      - aliases: {}
         customSQL:
           customSQL: ""
         dependencies:
@@ -248,8 +250,8 @@ operation:
             FROM {{ ref('WORK', 'STG_NATION') }} "STG_NATION"
             INNER JOIN {{ ref('WORK', 'STG_REGION') }} "STG_REGION"
             ON "STG_NATION"."N_COMMENT" = "STG_REGION"."R_COMMENT"
-            INNER JOIN {{ ref('WORK', 'STG_ORDERS') }} "STG_ORDERS"
-            ON "STG_NATION"."N_COMMENT" = "STG_ORDERS"."O_COMMENT"
+            INNER JOIN {{ ref( 'WORK', 'STG_ORDERS' ) }} "STG_ORDERS"
+            ON "STG_NATION"
         name: STG_NATION_REGION_ORDERS
         noLinkRefs: []
   name: STG_NATION_REGION_ORDERS
