@@ -12,7 +12,12 @@ operation:
   locationName: WORK
   materializationType: view
   metadata:
-    appliedNodeTests: []
+    appliedNodeTests:
+      - continueOnFailure: true
+        description: ""
+        name: Test
+        runOrder: After
+        templateString: SELECT * FROM {{ ref_no_link('WORK','ADVV_LINEITEM') }} WHERE L_ORDERKEY < 0
     columns:
       - appliedColumnTests: {}
         columnReference:
