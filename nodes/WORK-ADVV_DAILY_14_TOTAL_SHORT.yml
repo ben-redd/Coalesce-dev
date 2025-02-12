@@ -1,0 +1,64 @@
+fileVersion: 1
+id: 4bed315d-eeed-4f01-9340-f8acb2ac8a20
+name: ADVV_DAILY_14_TOTAL_SHORT
+operation:
+  config:
+    insertStrategy: UNION
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: WORK
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bc30a97f-b516-41fb-9328-1a7f5c284463
+          stepCounter: 4bed315d-eeed-4f01-9340-f8acb2ac8a20
+        config: {}
+        dataType: VARIANT
+        description: ""
+        name: V
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e46f5518-8ffa-4f5b-9c1d-2555c9d9c227
+                stepCounter: 18f88386-4592-435c-ae7c-39d735cd482e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 48e01b20-7d64-4424-bb1f-b64d83fb840b
+          stepCounter: 4bed315d-eeed-4f01-9340-f8acb2ac8a20
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        name: T
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 769b5871-db01-4a77-a816-f103b065a586
+                stepCounter: 18f88386-4592-435c-ae7c-39d735cd482e
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SAMPLE
+            nodeName: DAILY_14_TOTAL_SHORT
+        join:
+          joinCondition: FROM {{ ref('SAMPLE', 'DAILY_14_TOTAL_SHORT') }} "DAILY_14_TOTAL_SHORT"
+        name: ADVV_DAILY_14_TOTAL_SHORT
+        noLinkRefs: []
+  name: ADVV_DAILY_14_TOTAL_SHORT
+  overrideSQL: false
+  schema: ""
+  sqlType: advanced-view:::114
+  type: sql
+  version: 1
+type: Node
